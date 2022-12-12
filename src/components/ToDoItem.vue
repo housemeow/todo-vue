@@ -61,7 +61,9 @@ export default {
       this.isEditing = true;
     },
     itemEdited(newLabel) {
-      this.$emit("item-edited", newLabel);
+      if (newLabel.length <= 20) {
+        this.$emit("item-edited", newLabel);
+      }
       this.isEditing = false;
       this.focusOnEditButton();
     },

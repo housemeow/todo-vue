@@ -26,7 +26,9 @@ export default {
       if(this.label === "") {
         return;
       }
-      this.$emit('todo-added', this.label);
+      if (this.label.length <= 20) {
+        this.$emit('todo-added', this.label);
+      }
       this.label = "";
     }
   },
